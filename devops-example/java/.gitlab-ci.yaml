@@ -1,0 +1,45 @@
+stages:
+    - pre-build
+    - test
+    - build
+    - publish
+    - review
+    - deploy
+
+variables:
+    MAVEN_JDK_VERSION: "2.7.5-openjdk-11"
+    DOCKER_VERSION: "stable"
+    DOCKER_DIND_VERSION: "18.09-dind"
+    DOCKER_BUILD_ARGS_ENTRIPOINT: "--build-arg JAR_FILE=$JAR_FILE"
+
+default:
+    tags:
+        - docker
+
+include:
+    - project: tabeldata.co.id/gitlab-cicd-templates
+      ref: main
+      file: build.maven.gitlab-ci.yml
+    - project: tabeldata.co.id/gitlab-cicd-templates
+      ref: main
+      file: build.docker.gitlab-ci.yml
+    - project: tabeldata.co.id/gitlab-cicd-templates
+      ref: main
+      file: trigger.deploy.gitlab-ci.yml
+
+build:jar:
+    stage: build
+    extends: .build-jar
+    only:
+        - /-release/
+
+build:docker:
+    stage: build
+    extends: .build-docker
+    variables:
+        DOCKER_BUILD_ARGS_ENTRIPOINT: "--build-arg JAR_FILE=$JAR_FILE"
+    needs:
+        - build:jar
+        - get-fact:project:info
+    only:
+        - /-release/
