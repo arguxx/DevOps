@@ -1,0 +1,1 @@
+test   ansible_port=22     ansible_user=argu     ansible_host=192.168.100.87 ansible_ssh_pass=nutanix/4u

@@ -1,0 +1,6 @@
+---
+- name: Upgrade all packages
+  ansible.builtin.dnf:
+    name: "*"
+    state: latest
+# tasks file for jdk_11
