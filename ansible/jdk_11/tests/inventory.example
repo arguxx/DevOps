@@ -1,0 +1,2 @@
+[jdk]
+localhost ansible_host=localhost ansible_port=22 ansible_user=ansible   ansible_ssh_pass=ansible
