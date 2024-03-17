@@ -1,5 +1,5 @@
 [jdk]
-vm-1 ansible_host=192.168.100.87 ansible_port=22 ansible_user=argu   ansible_ssh_pass=nutanix/4u
-# vm-2 ansible_host=10.2.0.230 ansible_port=22 ansible_user=argu   ansible_ssh_pass=nutanix/4u
+# vm-1 ansible_host=192.168.100.87 ansible_port=22 ansible_user=root   ansible_ssh_pass=nutanix/4u
+vm-2 ansible_host=10.2.0.230 ansible_port=22 ansible_user=root   ansible_ssh_pass=nutanix/4u
 # vm-3 ansible_host=10.2.0.231 ansible_port=22 ansible_user=argu   ansible_ssh_pass=nutanix/4u
 # vm-4 ansible_host=10.2.0.154 ansible_port=22 ansible_user=argu   ansible_ssh_pass=nutanix/4u
