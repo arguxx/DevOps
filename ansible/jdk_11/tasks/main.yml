@@ -9,5 +9,5 @@
   - name: install java
     dnf:
         name: java-11-openjdk.x86_64
-        state: latest
+        state: present
 # tasks file for jdk_11
