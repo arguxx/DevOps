@@ -1,1 +1,2 @@
 .vscode/
+./ansible/jdk_11/tests/inventory
